@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
+#include <vector>
 #include "include/largest_subseq.h"
 
 
