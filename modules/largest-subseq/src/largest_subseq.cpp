@@ -86,11 +86,11 @@ std::vector<int> Sequential::findLargSubseqN2(std::vector <int> fSec) {
 }
 
 std::vector<int> Sequential::getLargSubseq(std::string name) {
+    std::vector<int> answer;
     if (name == "NlogN") {
-        std::vector<int> answer = findLargSubseqNlogN(Sequential::m_seq);
-        return answer;
+        answer = findLargSubseqNlogN(Sequential::m_seq);
     } else if (name == "N2") {
-        std::vector<int> answer = findLargSubseqN2(Sequential::m_seq);
-        return answer;
+        answer = findLargSubseqN2(Sequential::m_seq);
     }
+    return answer;
 }
