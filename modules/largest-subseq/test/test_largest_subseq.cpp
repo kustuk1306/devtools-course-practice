@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include <string>
 #include <vector>
+#include <tuple>
 #include "include/largest_subseq.h"
 
 typedef testing::TestWithParam<std::tuple<int, int, int, int, int, int>>
