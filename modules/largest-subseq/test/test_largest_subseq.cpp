@@ -5,148 +5,30 @@
 #include <vector>
 #include "include/largest_subseq.h"
 
+typedef testing::TestWithParam<std::tuple<int, int, int, int, int, int>>
+    Kirillov_Largest_Subseq_Param;
 
-TEST(largest_subseq, test_constructor) {
-    std::vector<int> seqVec(3);
-    seqVec[0] = 5;
-    seqVec[1] = 6;
-    seqVec[2] = 1;
-    ASSERT_NO_THROW(Sequential seq(seqVec));
-}
 
-TEST(largest_subseq, mix_number) {
-    int size = 6;
-    std::vector<int> seqVec(6);
-    std::vector<int> algAns;
-    std::vector<int> stAns(4);
-    seqVec[0] = -3;
-    seqVec[1] = 2;
-    seqVec[2] = 1;
-    seqVec[3] = 4;
-    seqVec[4] = 3;
-    seqVec[5] = 7;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns[0] = -3;
-    stAns[1] = 1;
-    stAns[2] = 3;
-    stAns[3] = 7;
-    ASSERT_EQ(algAns, stAns);
-}
-
-TEST(largest_subseq, one_number) {
+TEST_P(Kirillov_Largest_Subseq_Param, largest_subseq) {
     std::vector<int> seqVec;
-    std::vector<int> algAns;
-    std::vector<int> stAns;
-    seqVec.push_back(1);
+    std::vector<int> algAnsNlogN;
+    std::vector<int> algAnsN2;
+    seqVec.push_back(std::get<0>(GetParam()));
+    seqVec.push_back(std::get<1>(GetParam()));
+    seqVec.push_back(std::get<2>(GetParam()));
+    seqVec.push_back(std::get<3>(GetParam()));
+    seqVec.push_back(std::get<4>(GetParam()));
+    seqVec.push_back(std::get<5>(GetParam()));
     Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns.push_back(1);
-    ASSERT_EQ(algAns, stAns);
+    algAnsNlogN = seq.getLargSubseqNlogN();
+    algAnsN2 = seq.getLargSubseqN2();
+
+    ASSERT_EQ(algAnsNlogN.size(), algAnsN2.size());
 }
 
-TEST(largest_subseq, some_subSeq_with_idential_size) {
-    int size = 6;
-    std::vector<int> seqVec(6);
-    std::vector<int> algAns;
-    std::vector<int> stAns(2);
-    seqVec[0] = 5;
-    seqVec[1] = 6;
-    seqVec[2] = 1;
-    seqVec[3] = 2;
-    seqVec[4] = -3;
-    seqVec[5] = -2;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns[0] = -3;
-    stAns[1] = -2;
-    ASSERT_EQ(algAns, stAns);
-}
-
-TEST(largest_subseq, subSeq_is_equally_seq) {
-    int size = 5;
-    std::vector<int> seqVec(5);
-    std::vector<int> algAns;
-    std::vector<int> stAns(5);
-    seqVec[0] = 1;
-    seqVec[1] = 2;
-    seqVec[2] = 3;
-    seqVec[3] = 4;
-    seqVec[4] = 5;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns[0] = 1;
-    stAns[1] = 2;
-    stAns[2] = 3;
-    stAns[3] = 4;
-    stAns[4] = 5;
-    ASSERT_EQ(algAns, stAns);
-}
-
-TEST(largest_subseq, subSeq_with_highter_than_zero) {
-    int size = 5;
-    std::vector <int> seqVec(5);
-    std::vector <int> algAns(5);
-    std::vector <int> stAns(3);
-    seqVec[0] = 1;
-    seqVec[1] = 2;
-    seqVec[2] = 3;
-    seqVec[3] = 0;
-    seqVec[4] = 1;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns[0] = 1;
-    stAns[1] = 2;
-    stAns[2] = 3;
-    ASSERT_EQ(algAns, stAns);
-}
-
-TEST(largest_subseq, subSeq_with_lower_than_zero) {
-    int size = 5;
-    std::vector <int> seqVec(5);
-    std::vector <int> algAns(5);
-    std::vector <int> stAns(3);
-    seqVec[0] = -3;
-    seqVec[1] = -2;
-    seqVec[2] = -1;
-    seqVec[3] = -5;
-    seqVec[4] = -4;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns[0] = -3;
-    stAns[1] = -2;
-    stAns[2] = -1;
-    ASSERT_EQ(algAns, stAns);
-}
-
-TEST(largest_subseq, one_ans_with_idential) {
-    int size = 5;
-    std::vector <int> seqVec(5);
-    std::vector <int> algAns(5);
-    std::vector <int> stAns;
-    seqVec[0] = 3;
-    seqVec[1] = 3;
-    seqVec[2] = 3;
-    seqVec[3] = 3;
-    seqVec[4] = 3;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns.push_back(3);
-    ASSERT_EQ(algAns, stAns);
-}
-
-TEST(largest_subseq, one_ans_with_another) {
-    int size = 5;
-    std::vector <int> seqVec(5);
-    std::vector <int> algAns(5);
-    std::vector <int> stAns;
-    seqVec[0] = 5;
-    seqVec[1] = 4;
-    seqVec[2] = 3;
-    seqVec[3] = 2;
-    seqVec[4] = 1;
-    Sequential seq(seqVec);
-    algAns = seq.getLargSubseq();
-    stAns.push_back(5);
-    ASSERT_EQ(algAns, stAns);
-}
+INSTANTIATE_TEST_CASE_P(/**/, Kirillov_Largest_Subseq_Param,
+    testing::Combine(
+        testing::Values(7, 3, 5), testing::Values(-2, -5, -7),
+        testing::Values(1, 2, 3), testing::Values(5, 8, 9),
+        testing::Values(-5, -10, -15), testing::Values(10, -3, 0)
+));
