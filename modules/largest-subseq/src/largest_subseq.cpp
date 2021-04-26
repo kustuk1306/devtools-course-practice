@@ -1,5 +1,8 @@
 // Copyright 2021 Kirillov Konstantin
 #include "include/largest_subseq.h"
+#include <vector>
+#include <limits>
+#include <algorithm>
 
 Sequential::Sequential(std::vector <int> seq)
     :

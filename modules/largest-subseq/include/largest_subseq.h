@@ -4,7 +4,10 @@
 #define MODULES_LARGEST_SUBSEQ_INCLUDE_LARGEST_SUBSEQ_H_
 
 #include <string>
+#include <vector>
 #include <iostream>
+#include <algorithm>
+#include <limits>
 
 class Sequential {
  private:
