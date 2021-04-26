@@ -7,6 +7,7 @@
 #include <iostream>
 #include <algorithm>
 #include <limits>
+#include <string>
 
 class Sequential {
  private:
@@ -16,8 +17,7 @@ class Sequential {
 
  public:
     explicit Sequential(std::vector <int> seq);
-    std::vector<int> getLargSubseqNlogN();
-    std::vector<int> getLargSubseqN2();
+    std::vector<int> getLargSubseq(std::string name);
 };
 
 #endif  // MODULES_LARGEST_SUBSEQ_INCLUDE_LARGEST_SUBSEQ_H_

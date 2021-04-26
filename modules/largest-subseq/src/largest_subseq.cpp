@@ -3,6 +3,7 @@
 #include <vector>
 #include <limits>
 #include <algorithm>
+#include <string>
 
 Sequential::Sequential(std::vector <int> seq)
     :
@@ -84,12 +85,12 @@ std::vector<int> Sequential::findLargSubseqN2(std::vector <int> fSec) {
     return answer;
 }
 
-std::vector<int> Sequential::getLargSubseqNlogN() {
-    std::vector<int> answer = findLargSubseqNlogN(Sequential::m_seq);
-    return answer;
-}
-
-std::vector<int> Sequential::getLargSubseqN2() {
-    std::vector<int> answer = findLargSubseqN2(Sequential::m_seq);
-    return answer;
+std::vector<int> Sequential::getLargSubseq(std::string name) {
+    if (name == "NlogN") {
+        std::vector<int> answer = findLargSubseqNlogN(Sequential::m_seq);
+        return answer;
+    } else if (name == "N2") {
+        std::vector<int> answer = findLargSubseqN2(Sequential::m_seq);
+        return answer;
+    }
 }

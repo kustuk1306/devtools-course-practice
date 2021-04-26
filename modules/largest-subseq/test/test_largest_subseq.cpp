@@ -21,8 +21,8 @@ TEST_P(Kirillov_Largest_Subseq_Param, largest_subseq) {
     seqVec.push_back(std::get<4>(GetParam()));
     seqVec.push_back(std::get<5>(GetParam()));
     Sequential seq(seqVec);
-    algAnsNlogN = seq.getLargSubseqNlogN();
-    algAnsN2 = seq.getLargSubseqN2();
+    algAnsNlogN = seq.getLargSubseq("NlogN");
+    algAnsN2 = seq.getLargSubseq("N2");
 
     ASSERT_EQ(algAnsNlogN.size(), algAnsN2.size());
 }
