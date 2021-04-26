@@ -10,12 +10,12 @@
 #include <limits>
 
 class Sequential {
-private:
+ private:
     std::vector <int> m_seq;
     std::vector<int> findLargSubseq(std::vector <int> m_seq);
 
-public:
-    Sequential(std::vector <int> seq);
+ public:
+    explicit Sequential(std::vector <int> seq);
     std::vector<int> getLargSubseq();
 };
 
