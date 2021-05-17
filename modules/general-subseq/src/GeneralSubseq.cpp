@@ -13,8 +13,8 @@ std::vector <int> secondSeq)
 
 std::vector<int> GeneralSubseq::findGenLargSubseq(std::vector<int> a,
 std::vector<int> b) {
-    size_t firstSize = a.size();
-    size_t secondSize = b.size();
+    int firstSize = a.size();
+    int secondSize = b.size();
     std::vector<int>answer;
     std::vector<std::vector <int>> L(firstSize + 1,
      std::vector<int>(secondSize + 1));

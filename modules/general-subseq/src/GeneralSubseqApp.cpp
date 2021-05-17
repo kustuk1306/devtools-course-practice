@@ -79,7 +79,8 @@ std::string GeneralSubseqApp::operator()(int argc, const char** argv) {
     std::vector<int> ans;
     ans = m_seq.getLargSubseq();
     stream.str("");
-    for (int i=0; i < ans.size(); i++) stream << ans[i] << " ";
+    int size = ans.size();
+    for (int i=0; i < size; i++) stream << ans[i] << " ";
     message_ = stream.str();
     return message_;
 }
