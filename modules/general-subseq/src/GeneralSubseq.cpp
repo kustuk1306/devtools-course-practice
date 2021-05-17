@@ -15,7 +15,6 @@ std::vector<int> GeneralSubseq::findGenLargSubseq(std::vector<int> a,
 std::vector<int> b) {
     size_t firstSize = a.size();
     size_t secondSize = b.size();
-    int size = std::min(firstSize, secondSize);
     std::vector<int>answer;
     std::vector<std::vector <int>> L(firstSize + 1,
      std::vector<int>(secondSize + 1));
@@ -29,7 +28,7 @@ std::vector<int> b) {
         }
     }
 
-    for (int i = 0, j = 0; L[i][j] != 0 && i < firstSize && j < secondSize; ) {
+    for (int i = 0, j = 0; i < firstSize && j < secondSize && L[i][j] != 0; ) {
         if (a[i] == b[j]) {
             answer.push_back(a[i]);
             i++;
