@@ -1,16 +1,18 @@
 // Copyright 2021 Kirillov Konstantin
 
 #include "include/GeneralSubseq.h"
+#include <algorithm>
+#include <vector>
 
 GeneralSubseq::GeneralSubseq(std::vector <int> firstSeq,
- std::vector <int> secondSeq)
+std::vector <int> secondSeq)
     :
     m_first_seq(firstSeq),
     m_second_seq(secondSeq) {
     }
 
 std::vector<int> GeneralSubseq::findGenLargSubseq(std::vector<int> a,
- std::vector<int> b) {
+std::vector<int> b) {
     size_t firstSize = a.size();
     size_t secondSize = b.size();
     int size = std::min(firstSize, secondSize);

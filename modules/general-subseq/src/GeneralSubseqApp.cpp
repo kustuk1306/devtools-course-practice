@@ -6,6 +6,7 @@
 #include <ctime>
 #include <random>
 #include <sstream>
+#include <vector>
 #include <utility>
 #include "include/GeneralSubseqApp.h"
 #include "include/GeneralSubseq.h"
