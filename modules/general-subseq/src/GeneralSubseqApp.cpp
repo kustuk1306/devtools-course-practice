@@ -45,10 +45,6 @@ int parseInt(const char* arg) {
         throw std::string("Wrong number format!");
     }
 
-    if (value <= 0) {
-        throw std::string("Number must be positive!");
-    }
-
     return value;
 }
 
