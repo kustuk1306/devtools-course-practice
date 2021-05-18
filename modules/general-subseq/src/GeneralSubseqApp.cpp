@@ -16,8 +16,8 @@ GeneralSubseqApp::GeneralSubseqApp() : message_("") {}
 void GeneralSubseqApp::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-        "This is a check of the longest general subsequential search," +
-        "among a randomly given sequence.\n\n" +
+        "This is a check of the longest general subsequential search," \
+        "among a randomly given sequence.\n\n" \
         "Please provide arguments in the following format:\n$"
         + appname + "count . \n\n"
         + "The argument is the length of the generated sequence\n\n" \
